@@ -3,36 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omkar Ekale - Property Advisor</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Omkar Ekale - Premium Property Advisor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #1e40af;
-            --secondary: #1d4ed8;
-            --accent: #f59e0b;
-            --success: #059669;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            overflow-x: hidden;
+            background: #0f0f23;
+            color: white;
         }
-        .logo { 
-            font-size: 1.8rem !important; 
-            font-weight: bold !important; 
-            display: flex; 
-            align-items: center; 
-            gap: 0.5rem;
+
+        /* Gradient Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(-45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
         }
-        .agent-name { font-size: 1.4rem !important; color: #fbbf24 !important; }
-        header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important; }
-        .hero h1 { font-size: 3rem !important; }
-        .phone-highlight { 
-            background: var(--success); 
-            color: white; 
-            padding: 15px 25px; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            font-size: 1.3rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; width: 100%; padding: 1rem 5%; 
+            backdrop-filter: blur(20px); background: rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1400px; margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem; font-weight: 800; 
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex; list-style: none; gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white; text-decoration: none; 
+            font-weight: 500; position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 2px; background: #ff006e; transition: 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Hero */
+        .hero {
+            height: 100vh; display: flex; align-items: center; 
+            justify-content: center; text-align: center; padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem; font-weight: 800; margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ff006e);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px #ff006e); }
+            to { filter: drop-shadow(0 0 30px #8338ec); }
+        }
+
+        .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; opacity: 0.9; }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            color: white; padding: 18px 40px; border: none;
+            border-radius: 50px; font-size: 1.2rem; font-weight: 700;
+            cursor: pointer; transition: all 0.3s; 
+            box-shadow: 0 10px 30px rgba(255,0,110,0.4);
+            text-decoration: none; display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255,0,110,0.6);
+        }
+
+        /* Properties */
+        .properties {
+            padding: 120px 5%; max-width: 1400px; margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3.5rem; text-align: center; margin-bottom: 4rem;
+            background: linear-gradient(45deg, #fff, #ff006e);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .properties-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .property-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px); border-radius: 25px; 
+            padding: 2rem; border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s; position: relative; overflow: hidden;
+        }
+
+        .property-card::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.7s;
+        }
+
+        .property-card:hover::before { left: 100%; }
+        .property-card:hover { 
+            transform: translateY(-15px) scale(1.02); 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .property-price {
+            font-size: 2.2rem; font-weight: 800; 
+            background: linear-gradient(45deg, #06ffa5, #00f5d4);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .property-title {
+            font-size: 1.6rem; margin-bottom: 1rem; color: #fff;
+        }
+
+        .property-details {
+            display: flex; gap: 1.5rem; margin-bottom: 1.5rem; font-size: 1.1rem;
+        }
+
+        .property-details span {
+            display: flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.1); padding: 0.5rem 1rem;
+            border-radius: 20px; backdrop-filter: blur(10px);
+        }
+
+        .view-btn {
+            width: 100%; background: linear-gradient(45deg, #06ffa5, #00f5d4);
+            color: #0f0f23; border: none; padding: 16px;
+            border-radius: 25px; font-weight: 700; font-size: 1.1rem;
+            cursor: pointer; transition: all 0.3s;
+        }
+
+        .view-btn:hover {
+            transform: scale(1.05); box-shadow: 0 15px 35px rgba(6,255,165,0.4);
+        }
+
+        /* Stats */
+        .stats {
+            padding: 100px 5%; background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem; max-width: 1400px; margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem; margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff006e, #06ffa5);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 120px 5%; max-width: 1400px; margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+        }
+
+        .phone-highlight {
+            background: linear-gradient(45deg, #ff006e, #8338ec) !important;
+            font-size: 1.8rem !important; padding: 25px 40px !important;
+            box-shadow: 0 15px 40px rgba(255,0,110,0.4) !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3rem; }
+            .properties-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -41,9 +218,7 @@
     <header>
         <nav>
             <div class="logo">
-                <i class="fas fa-home" style="color:#fbbf24;"></i>
-                <span>Omkar Ekale</span><br>
-                <small class="agent-name">Property Advisor</small>
+                <i class="fas fa-home"></i> Omkar Ekale
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -51,198 +226,135 @@
                 <li><a href="#commercial">Commercial</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle"><span></span><span></span><span></span></div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1><i class="fas fa-user-tie"></i> Omkar Ekale</h1>
-            <h2 style="font-size:2rem;margin-bottom:1rem;">Your Property Advisor</h2>
-            <p style="font-size:1.4rem;">
-                🏡 Residential | 🏢 Commercial<br>
-                <strong>Buyers • Investors • Sellers</strong><br>
-                Best deals in the market!
-            </p>
-            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-                <a href="tel:9130802643" class="phone-highlight">
-                    <i class="fas fa-phone"></i> Call Now: 9130802643
+            <h1>Omkar Ekale</h1>
+            <p>🏠 Premium Property Advisor<br><strong>Residential • Commercial • Investment</strong></p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:9130802643" class="cta-button">
+                    <i class="fas fa-phone"></i> Call Now 9130802643
                 </a>
-                <a href="#residential" class="cta-button">🏡 View Properties</a>
+                <a href="#properties" class="cta-button" style="background: linear-gradient(45deg, #06ffa5, #00f5d4);">
+                    View Properties
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Residential Properties -->
+    <!-- Residential -->
     <section id="residential" class="properties">
         <h2 class="section-title">🏡 Residential Properties</h2>
-        <div style="text-align:center;margin-bottom:3rem;">
-            <p style="color:#666;font-size:1.2rem;">Perfect homes for families & investors</p>
-            <a href="tel:9130802643" style="color:var(--primary);font-weight:bold;font-size:1.1rem;">
-                📞 Call Omkar: 9130802643 for private viewing
-            </a>
-        </div>
         <div class="properties-grid">
             <div class="property-card">
-                <div class="property-image" style="background:linear-gradient(135deg,#ff6b6b,#ff8e8e);"></div>
-                <div class="property-info">
-                    <div class="property-price">$1,250,000</div>
-                    <div class="property-title">Luxury Beach Villa</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 4 Beds</span>
-                        <span><i class="fas fa-bath"></i> 3 Baths</span>
-                        <span><i class="fas fa-car"></i> 2 Garage</span>
-                    </div>
-                    <div style="color:var(--success);font-weight:bold;">💰 8% Annual Return</div>
-                    <button class="view-btn">Call Omkar Now</button>
+                <div class="property-price">₹1.25 Cr</div>
+                <div class="property-title">Luxury Beach Villa</div>
+                <div class="property-details">
+                    <span><i class="fas fa-bed"></i> 4 Beds</span>
+                    <span><i class="fas fa-bath"></i> 3 Baths</span>
+                    <span><i class="fas fa-coins"></i> 8% ROI</span>
                 </div>
+                <button class="view-btn" onclick="callOmkar()">📞 Call Omkar</button>
             </div>
             <div class="property-card">
-                <div class="property-image" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);"></div>
-                <div class="property-info">
-                    <div class="property-price">$625,000</div>
-                    <div class="property-title">Family Starter Home</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 4 Beds</span>
-                        <span><i class="fas fa-bath"></i> 2 Baths</span>
-                        <span><i class="fas fa-ruler-combined"></i> 2,400 sqft</span>
-                    </div>
-                    <div style="color:var(--success);font-weight:bold;">🏡 First Buyer Ready</div>
-                    <button class="view-btn">Call Omkar Now</button>
+                <div class="property-price">₹62.5 Lac</div>
+                <div class="property-title">Family Dream Home</div>
+                <div class="property-details">
+                    <span><i class="fas fa-bed"></i> 4 Beds</span>
+                    <span><i class="fas fa-car"></i> 2 Garage</span>
+                    <span><i class="fas fa-heart"></i> Move-in Ready</span>
                 </div>
+                <button class="view-btn" onclick="callOmkar()">📞 Call Omkar</button>
             </div>
             <div class="property-card">
-                <div class="property-image" style="background:linear-gradient(135deg,#10b981,#34d399);"></div>
-                <div class="property-info">
-                    <div class="property-price">$475,000</div>
-                    <div class="property-title">Rental Investment</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 3 Beds</span>
-                        <span><i class="fas fa-bath"></i> 2 Baths</span>
-                        <span><i class="fas fa-coins"></i> ₹25K/Month</span>
-                    </div>
-                    <button class="view-btn">Call Omkar Now</button>
+                <div class="property-price">₹47.5 Lac</div>
+                <div class="property-title">Rental Investment</div>
+                <div class="property-details">
+                    <span><i class="fas fa-coins"></i> ₹25K/Month</span>
+                    <span><i class="fas fa-bed"></i> 3 Beds</span>
+                    <span><i class="fas fa-chart-line"></i> 7% Yield</span>
                 </div>
+                <button class="view-btn" onclick="callOmkar()">📞 Call Omkar</button>
             </div>
         </div>
     </section>
 
-    <!-- Commercial Properties -->
-    <section id="commercial" class="properties" style="background:#f8fafc;">
+    <!-- Commercial -->
+    <section id="commercial" class="properties">
         <h2 class="section-title">🏢 Commercial Properties</h2>
-        <div style="text-align:center;margin-bottom:3rem;">
-            <p style="color:#666;font-size:1.2rem;">High ROI office, retail & warehouse spaces</p>
-            <a href="tel:9130802643" style="color:var(--primary);font-weight:bold;font-size:1.1rem;">
-                📞 Omkar Ekale: 9130802643
-            </a>
-        </div>
         <div class="properties-grid">
             <div class="property-card">
-                <div class="property-image" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);"></div>
-                <div class="property-info">
-                    <div class="property-price">₹2.75 Cr</div>
-                    <div class="property-title">Office Complex</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-building"></i> 15,000 sqft</span>
-                        <span><i class="fas fa-chart-line"></i> 9% ROI</span>
-                        <span><i class="fas fa-users"></i> 85% Leased</span>
-                    </div>
-                    <button class="view-btn">Call Omkar Now</button>
+                <div class="property-price">₹2.75 Cr</div>
+                <div class="property-title">Prime Office Space</div>
+                <div class="property-details">
+                    <span><i class="fas fa-building"></i> 15K sqft</span>
+                    <span><i class="fas fa-chart-line"></i> 9.2% Cap</span>
+                    <span><i class="fas fa-users"></i> 85% Leased</span>
                 </div>
+                <button class="view-btn" onclick="callOmkar()">📞 Call Omkar</button>
             </div>
             <div class="property-card">
-                <div class="property-image" style="background:linear-gradient(135deg,#ef4444,#f87171);"></div>
-                <div class="property-info">
-                    <div class="property-price">₹1.95 Cr</div>
-                    <div class="property-title">Retail Plaza</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-store"></i> 8 Shops</span>
-                        <span><i class="fas fa-coins"></i> ₹15L/Year</span>
-                        <span><i class="fas fa-car"></i> 45 Parking</span>
-                    </div>
-                    <button class="view-btn">Call Omkar Now</button>
+                <div class="property-price">₹1.95 Cr</div>
+                <div class="property-title">Retail Plaza</div>
+                <div class="property-details">
+                    <span><i class="fas fa-store"></i> 8 Shops</span>
+                    <span><i class="fas fa-coins"></i> ₹18L/Year</span>
+                    <span><i class="fas fa-car"></i> 45 Parking</span>
                 </div>
+                <button class="view-btn" onclick="callOmkar()">📞 Call Omkar</button>
             </div>
         </div>
     </section>
 
     <!-- Stats -->
     <section class="stats">
-        <h2 class="section-title">Why Omkar Ekale?</h2>
+        <h2 class="section-title">Why Clients Choose Omkar</h2>
         <div class="stats-grid">
             <div class="stat-item">
-                <h3>12% <i class="fas fa-coins"></i></h3>
-                <p>Avg Client Savings</p>
+                <h3>12%</h3>
+                <p>Avg Savings</p>
             </div>
             <div class="stat-item">
                 <h3>150+</h3>
-                <p>Properties Handled</p>
+                <p>Properties Sold</p>
             </div>
             <div class="stat-item">
-                <h3>24 Hrs</h3>
-                <p>Response Guarantee</p>
+                <h3>24h</h3>
+                <p>Response</p>
             </div>
             <div class="stat-item">
                 <h3>97%</h3>
-                <p>Repeat Clients</p>
+                <p>Satisfaction</p>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact" style="background:var(--primary);color:white;">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2 style="color:white;">📞 Contact Omkar Ekale</h2>
-                <div style="font-size:2rem;margin:2rem 0;">
-                    <a href="tel:9130802643" class="phone-highlight" style="background:#059669;">
-                        <i class="fas fa-phone"></i> 9130802643
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-whatsapp" style="font-size:2rem;color:#25D366;"></i>
-                    <div><strong>WhatsApp:</strong><br>9130802643</div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div><strong>Email:</strong><br>omkar@propertyadvisor.in</div>
-                </div>
+    <section id="contact" class="contact">
+        <h2 class="section-title" style="margin-bottom:2rem;">Contact Omkar Ekale</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
+            <div style="text-align:center;padding:3rem;background:rgba(255,255,255,0.1);border-radius:25px;">
+                <a href="tel:9130802643" class="phone-highlight">
+                    <i class="fas fa-phone"></i> 9130802643
+                </a>
+                <p style="font-size:1.3rem;margin-top:1rem;">Call Anytime</p>
             </div>
-            <form class="contact-form" style="background:rgba(255,255,255,0.1);">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Your Phone" required>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="Residential or Commercial? Budget? Location?" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn" style="background:var(--accent);">
-                    <i class="fas fa-paper-plane"></i> Send to Omkar
-                </button>
-            </form>
+            <div style="text-align:center;padding:3rem;background:rgba(255,255,255,0.1);border-radius:25px;">
+                <a href="https://wa.me/919130802643" target="_blank" class="phone-highlight" style="background: #25D366;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <p style="font-size:1.3rem;margin-top:1rem;">Instant Chat</p>
+            </div>
         </div>
     </section>
 
-    <footer style="background:#111;color:white;padding:2rem;text-align:center;">
-        <p>© 2024 Omkar Ekale - Property Advisor | All Rights Reserved</p>
-    </footer>
-
-    <!-- ALL ORIGINAL SCRIPTS -->
     <script>
-        document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                window.location.href = 'tel:9130802643';
-            });
-        });
-        
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('✅ Message sent to Omkar Ekale!\n📞 Calling 9130802643...');
+        function callOmkar() {
             window.location.href = 'tel:9130802643';
-        });
+        }
     </script>
 </body>
 </html>
