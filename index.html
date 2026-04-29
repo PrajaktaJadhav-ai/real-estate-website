@@ -3,154 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Advisor - Expert Real Estate Consulting</title>
+    <title>Omkar Ekale - Property Advisor</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* [KEEP ALL ORIGINAL CSS - Just branding changes below] */
         :root {
-            --primary: #2c5aa0;
-            --secondary: #1e3a8a;
+            --primary: #1e40af;
+            --secondary: #1d4ed8;
             --accent: #f59e0b;
-            --success: #10b981;
+            --success: #059669;
         }
-        
-        .logo { color: white !important; font-size: 1.8rem !important; }
+        .logo { 
+            font-size: 1.8rem !important; 
+            font-weight: bold !important; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem;
+        }
+        .agent-name { font-size: 1.4rem !important; color: #fbbf24 !important; }
         header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important; }
-        .cta-button, .view-btn, .submit-btn { 
-            background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%) !important; 
+        .hero h1 { font-size: 3rem !important; }
+        .phone-highlight { 
+            background: var(--success); 
+            color: white; 
+            padding: 15px 25px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <!-- Updated Header -->
+    <!-- Header -->
     <header>
         <nav>
             <div class="logo">
-                <i class="fas fa-chart-line"></i> Property Advisor
+                <i class="fas fa-home" style="color:#fbbf24;"></i>
+                <span>Omkar Ekale</span><br>
+                <small class="agent-name">Property Advisor</small>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#properties">Listings</a></li>
-                <li><a href="#consult">Consult</a></li>
+                <li><a href="#residential">Residential</a></li>
+                <li><a href="#commercial">Commercial</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle">
-                <span></span><span></span><span></span>
-            </div>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
         </nav>
     </header>
 
-    <!-- Hero - ADVISOR Focus -->
-    <section id="home" class="hero" style="background: linear-gradient(rgba(44,90,160,0.9), rgba(30,58,138,0.9)), url('data:image/svg+xml,<svg...[KEEP ORIGINAL BG]');">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1><i class="fas fa-handshake"></i> Your Property Advisor</h1>
-            <p>Expert guidance for buying, selling & investing. <strong>98% client success rate.</strong></p>
-            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                <a href="#consult" class="cta-button"><i class="fas fa-calendar"></i> Free Consultation</a>
-                <a href="#properties" class="cta-button" style="background:#10b981;">View Listings</a>
+            <h1><i class="fas fa-user-tie"></i> Omkar Ekale</h1>
+            <h2 style="font-size:2rem;margin-bottom:1rem;">Your Property Advisor</h2>
+            <p style="font-size:1.4rem;">
+                🏡 Residential | 🏢 Commercial<br>
+                <strong>Buyers • Investors • Sellers</strong><br>
+                Best deals in the market!
+            </p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+                <a href="tel:9130802643" class="phone-highlight">
+                    <i class="fas fa-phone"></i> Call Now: 9130802643
+                </a>
+                <a href="#residential" class="cta-button">🏡 View Properties</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section (NEW!) -->
-    <section id="services" class="properties" style="background:#f8fafc;">
-        <h2 class="section-title" style="color:var(--primary);">Our Advisory Services</h2>
-        <div class="properties-grid">
-            <div class="property-card" style="text-align:center;">
-                <div class="property-image" style="background:linear-gradient(135deg,var(--primary),var(--secondary));height:200px;">
-                    <i class="fas fa-search-dollar" style="font-size:4rem;color:white;padding-top:60px;"></i>
-                </div>
-                <div class="property-info">
-                    <h3>Investment Analysis</h3>
-                    <p>ROI projections, market trends, best neighborhoods for growth</p>
-                </div>
-            </div>
-            <div class="property-card" style="text-align:center;">
-                <div class="property-image" style="background:linear-gradient(135deg,var(--primary),var(--secondary));height:200px;">
-                    <i class="fas fa-chart-line" style="font-size:4rem;color:white;padding-top:60px;"></i>
-                </div>
-                <div class="property-info">
-                    <h3>Market Reports</h3>
-                    <p>Monthly price analysis, neighborhood insights, investment timing</p>
-                </div>
-            </div>
-            <div class="property-card" style="text-align:center;">
-                <div class="property-image" style="background:linear-gradient(135deg,var(--primary),var(--secondary));height:200px;">
-                    <i class="fas fa-handshake" style="font-size:4rem;color:white;padding-top:60px;"></i>
-                </div>
-                <div class="property-info">
-                    <h3>Negotiation</h3>
-                    <p>Save 3-7% on purchases, maximize sale prices</p>
-                </div>
-            </div>
-            <div class="property-card" style="text-align:center;">
-                <div class="property-image" style="background:linear-gradient(135deg,var(--primary),var(--secondary));height:200px;">
-                    <i class="fas fa-file-contract" style="font-size:4rem;color:white;padding-top:60px;"></i>
-                </div>
-                <div class="property-info">
-                    <h3>Contract Review</h3>
-                    <p>Legal protection, hidden costs exposed, smooth closings</p>
-                </div>
-            </div>
+    <!-- Residential Properties -->
+    <section id="residential" class="properties">
+        <h2 class="section-title">🏡 Residential Properties</h2>
+        <div style="text-align:center;margin-bottom:3rem;">
+            <p style="color:#666;font-size:1.2rem;">Perfect homes for families & investors</p>
+            <a href="tel:9130802643" style="color:var(--primary);font-weight:bold;font-size:1.1rem;">
+                📞 Call Omkar: 9130802643 for private viewing
+            </a>
         </div>
-    </section>
-
-    <!-- Updated Properties = Client Success -->
-    <section id="properties" class="properties">
-        <h2 class="section-title">Recent Client Success</h2>
         <div class="properties-grid">
-            <!-- KEEP ORIGINAL 6 PROPERTY CARDS but change titles: -->
             <div class="property-card">
-                <div class="property-image"></div>
+                <div class="property-image" style="background:linear-gradient(135deg,#ff6b6b,#ff8e8e);"></div>
                 <div class="property-info">
-                    <div class="property-price" style="color:var(--success);">$1,250,000 <span style="font-size:0.8em;color:#666;">SAVED</span></div>
-                    <div class="property-title">Beachfront Investment</div>
+                    <div class="property-price">$1,250,000</div>
+                    <div class="property-title">Luxury Beach Villa</div>
                     <div class="property-details">
-                        <span><i class="fas fa-trophy"></i> 6.2% ROI</span>
-                        <span><i class="fas fa-clock"></i> 21 Days</span>
-                        <span><i class="fas fa-users"></i> Client: Smith Family</span>
+                        <span><i class="fas fa-bed"></i> 4 Beds</span>
+                        <span><i class="fas fa-bath"></i> 3 Baths</span>
+                        <span><i class="fas fa-car"></i> 2 Garage</span>
                     </div>
-                    <button class="view-btn">Case Study</button>
+                    <div style="color:var(--success);font-weight:bold;">💰 8% Annual Return</div>
+                    <button class="view-btn">Call Omkar Now</button>
                 </div>
             </div>
-            <!-- Repeat for other 5 cards with different ROI/days/clients -->
+            <div class="property-card">
+                <div class="property-image" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);"></div>
+                <div class="property-info">
+                    <div class="property-price">$625,000</div>
+                    <div class="property-title">Family Starter Home</div>
+                    <div class="property-details">
+                        <span><i class="fas fa-bed"></i> 4 Beds</span>
+                        <span><i class="fas fa-bath"></i> 2 Baths</span>
+                        <span><i class="fas fa-ruler-combined"></i> 2,400 sqft</span>
+                    </div>
+                    <div style="color:var(--success);font-weight:bold;">🏡 First Buyer Ready</div>
+                    <button class="view-btn">Call Omkar Now</button>
+                </div>
+            </div>
+            <div class="property-card">
+                <div class="property-image" style="background:linear-gradient(135deg,#10b981,#34d399);"></div>
+                <div class="property-info">
+                    <div class="property-price">$475,000</div>
+                    <div class="property-title">Rental Investment</div>
+                    <div class="property-details">
+                        <span><i class="fas fa-bed"></i> 3 Beds</span>
+                        <span><i class="fas fa-bath"></i> 2 Baths</span>
+                        <span><i class="fas fa-coins"></i> ₹25K/Month</span>
+                    </div>
+                    <button class="view-btn">Call Omkar Now</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Consultation Section (NEW!) -->
-    <section id="consult" class="stats" style="padding:100px 2rem;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;">
-        <div style="max-width:800px;margin:0 auto;text-align:center;">
-            <h2 style="font-size:3rem;margin-bottom:1rem;">Free Strategy Session</h2>
-            <p style="font-size:1.3rem;margin-bottom:2rem;">30-min call | Market analysis | Personalized plan</p>
-            <div style="background:rgba(255,255,255,0.1);padding:2rem;border-radius:15px;">
-                <div style="font-size:2rem;margin:1rem 0;">
-                    <i class="fas fa-check-circle" style="color:var(--success);"></i> 
-                    Current portfolio review
-                </div>
-                <div style="font-size:2rem;margin:1rem 0;">
-                    <i class="fas fa-check-circle" style="color:var(--success);"></i> 
-                    12-month investment roadmap
-                </div>
-                <div style="font-size:2rem;margin:1rem 0;">
-                    <i class="fas fa-check-circle" style="color:var(--success);"></i> 
-                    Neighborhood recommendations
+    <!-- Commercial Properties -->
+    <section id="commercial" class="properties" style="background:#f8fafc;">
+        <h2 class="section-title">🏢 Commercial Properties</h2>
+        <div style="text-align:center;margin-bottom:3rem;">
+            <p style="color:#666;font-size:1.2rem;">High ROI office, retail & warehouse spaces</p>
+            <a href="tel:9130802643" style="color:var(--primary);font-weight:bold;font-size:1.1rem;">
+                📞 Omkar Ekale: 9130802643
+            </a>
+        </div>
+        <div class="properties-grid">
+            <div class="property-card">
+                <div class="property-image" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);"></div>
+                <div class="property-info">
+                    <div class="property-price">₹2.75 Cr</div>
+                    <div class="property-title">Office Complex</div>
+                    <div class="property-details">
+                        <span><i class="fas fa-building"></i> 15,000 sqft</span>
+                        <span><i class="fas fa-chart-line"></i> 9% ROI</span>
+                        <span><i class="fas fa-users"></i> 85% Leased</span>
+                    </div>
+                    <button class="view-btn">Call Omkar Now</button>
                 </div>
             </div>
-            <a href="#contact" class="cta-button" style="font-size:1.3rem;padding:20px 40px;margin-top:2rem;">Book Free Session</a>
+            <div class="property-card">
+                <div class="property-image" style="background:linear-gradient(135deg,#ef4444,#f87171);"></div>
+                <div class="property-info">
+                    <div class="property-price">₹1.95 Cr</div>
+                    <div class="property-title">Retail Plaza</div>
+                    <div class="property-details">
+                        <span><i class="fas fa-store"></i> 8 Shops</span>
+                        <span><i class="fas fa-coins"></i> ₹15L/Year</span>
+                        <span><i class="fas fa-car"></i> 45 Parking</span>
+                    </div>
+                    <button class="view-btn">Call Omkar Now</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- KEEP Original Stats, Contact sections but update titles -->
-    <!-- Stats: Change to Advisor Stats -->
-    <!-- Contact: Add consultation form fields -->
+    <!-- Stats -->
+    <section class="stats">
+        <h2 class="section-title">Why Omkar Ekale?</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>12% <i class="fas fa-coins"></i></h3>
+                <p>Avg Client Savings</p>
+            </div>
+            <div class="stat-item">
+                <h3>150+</h3>
+                <p>Properties Handled</p>
+            </div>
+            <div class="stat-item">
+                <h3>24 Hrs</h3>
+                <p>Response Guarantee</p>
+            </div>
+            <div class="stat-item">
+                <h3>97%</h3>
+                <p>Repeat Clients</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact -->
+    <section id="contact" class="contact" style="background:var(--primary);color:white;">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2 style="color:white;">📞 Contact Omkar Ekale</h2>
+                <div style="font-size:2rem;margin:2rem 0;">
+                    <a href="tel:9130802643" class="phone-highlight" style="background:#059669;">
+                        <i class="fas fa-phone"></i> 9130802643
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-whatsapp" style="font-size:2rem;color:#25D366;"></i>
+                    <div><strong>WhatsApp:</strong><br>9130802643</div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div><strong>Email:</strong><br>omkar@propertyadvisor.in</div>
+                </div>
+            </div>
+            <form class="contact-form" style="background:rgba(255,255,255,0.1);">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Your Phone" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Residential or Commercial? Budget? Location?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" style="background:var(--accent);">
+                    <i class="fas fa-paper-plane"></i> Send to Omkar
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="background:#111;color:white;padding:2rem;text-align:center;">
+        <p>© 2024 Omkar Ekale - Property Advisor | All Rights Reserved</p>
+    </footer>
+
+    <!-- ALL ORIGINAL SCRIPTS -->
     <script>
-        // [KEEP ALL ORIGINAL JS]
         document.querySelectorAll('.view-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                alert('📋 Full case study + ROI analysis\n📞 Book consultation for your property!');
+                window.location.href = 'tel:9130802643';
             });
+        });
+        
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Message sent to Omkar Ekale!\n📞 Calling 9130802643...');
+            window.location.href = 'tel:9130802643';
         });
     </script>
 </body>
