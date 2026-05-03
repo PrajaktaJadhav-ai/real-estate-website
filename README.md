@@ -1,11 +1,12 @@
-# real-estate-website
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Properties - Premium Real Estate</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Omkar Ekale - Real Estate Property Adviser | Residential & Commercial</title>
+    <meta name="description" content="Omkar Ekale - Expert Real Estate Adviser in Pune. Buy, Sell & Invest in Residential and Commercial Properties. Perfect for First-Time Buyers & Investors.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,15 +15,25 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
         }
 
+        /* Color Scheme */
+        :root {
+            --black: #1a1a1a;
+            --light-orange: #ff8c42;
+            --light-orange-dark: #e67739;
+            --white: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--black);
+            color: var(--white);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -32,17 +43,19 @@
         }
 
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 0 2rem;
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 700;
+            color: var(--light-orange);
+            text-decoration: none;
         }
 
         .nav-links {
@@ -52,97 +65,152 @@
         }
 
         .nav-links a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            transition: opacity 0.3s;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: var(--light-orange);
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
+        .cta-btn {
+            background: var(--light-orange);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
             cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 3px 0;
-            transition: 0.3s;
+        .cta-btn:hover {
+            background: var(--light-orange-dark);
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23667eea" width="1200" height="800"/><circle fill="%23764ba2" opacity="0.3" cx="300" cy="200" r="200"/><circle fill="%23f093fb" opacity="0.4" cx="900" cy="600" r="150"/><path fill="%23f5576c" opacity="0.2" d="M0 400 Q300 200 600 400 T1200 400 V800 H0 Z"/></svg>');
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, var(--black) 0%, #2d2d2d 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
             text-align: center;
-            color: white;
-            margin-top: 70px;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255,107,107,0.4);
-        }
-
-        /* Properties Section */
-        .properties {
-            padding: 100px 2rem;
+        .hero-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--light-orange);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--gray-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 3rem;
-            color: #333;
+            color: var(--black);
         }
 
-        .properties-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card.residential { border-top-color: var(--light-orange); }
+        .service-card.commercial { border-top-color: #28a745; }
+        .service-card.investment { border-top-color: #007bff; }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        /* Properties Section */
+        .properties {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
         .property-card {
-            background: white;
-            border-radius: 15px;
+            background: var(--white);
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .property-card:hover {
@@ -151,25 +219,13 @@
         }
 
         .property-image {
-            height: 250px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .property-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .property-card:hover .property-image::before {
-            left: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--light-orange), #ffad6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
         }
 
         .property-info {
@@ -178,104 +234,78 @@
 
         .property-price {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #ff6b6b;
+            font-weight: 700;
+            color: var(--light-orange);
             margin-bottom: 0.5rem;
         }
 
-        .property-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #333;
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--black);
+            color: var(--white);
         }
 
-        .property-details {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .view-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .view-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Stats Section */
-        .stats {
-            background: #f8f9fa;
-            padding: 80px 2rem;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            color: #ff6b6b;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
+        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #333;
+        .about-image {
+            height: 400px;
+            background: linear-gradient(45deg, var(--light-orange), #ffad6b);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: var(--gray-light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
+            gap: 1rem;
         }
 
         .contact-item i {
-            font-size: 1.5rem;
-            color: #667eea;
-            margin-right: 1rem;
-            width: 30px;
+            background: var(--light-orange);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
         .contact-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .form-group {
@@ -285,89 +315,66 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255,107,107,0.4);
+            border-color: var(--light-orange);
         }
 
         /* Footer */
         footer {
-            background: #333;
-            color: white;
+            background: var(--black);
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 2rem 0;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #667eea;
-                flex-direction: column;
-                padding: 1rem;
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero-content h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .contact-grid {
+            .about-content,
+            .contact-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .properties {
-                padding: 80px 1rem;
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: flex;
             }
         }
     </style>
@@ -376,14 +383,16 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Elite Properties</div>
+            <a href="#" class="logo">Omkar Ekale</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#properties">Properties</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle">
+            <a href="#contact" class="cta-btn">Get Consultation</a>
+            <div class="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -393,185 +402,179 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Find Your Dream Home</h1>
-            <p>Discover premium properties in the most desirable locations. Your perfect home is just one click away.</p>
-            <a href="#properties" class="cta-button">Explore Properties</a>
+        <div class="hero-container">
+            <h1>Your Trusted Real Estate Partner</h1>
+            <p class="subtitle">Expert guidance for Residential, Commercial properties & Smart Investments in Pune</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div>Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">₹200Cr+</div>
+                    <div>Properties Sold</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div>Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div>Satisfaction</div>
+                </div>
+            </div>
+            <a href="#contact" class="cta-btn" style="font-size: 1.2rem; padding: 1rem 3rem;">Start Your Journey Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Expertise</h2>
+            <div class="services-grid">
+                <div class="service-card residential">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Residential Properties</h3>
+                    <p>Perfect homes for first-time buyers, families, and growing households. From 1BHK to luxury villas in prime Pune locations.</p>
+                </div>
+                <div class="service-card commercial">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Commercial Properties</h3>
+                    <p>Office spaces, retail shops, and commercial complexes for businesses and investors seeking high returns.</p>
+                </div>
+                <div class="service-card investment">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Investment Advisory</h3>
+                    <p>Strategic investment advice for maximum ROI. Portfolio diversification and market trend analysis.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Properties Section -->
     <section id="properties" class="properties">
-        <h2 class="section-title">Featured Properties</h2>
-        <div class="properties-grid">
-            <div class="property-card">
-                <div class="property-image"></div>
-                <div class="property-info">
-                    <div class="property-price">$1,250,000</div>
-                    <div class="property-title">Modern Beachfront Villa</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 4 Beds</span>
-                        <span><i class="fas fa-bath"></i> 3 Baths</span>
-                        <span><i class="fas fa-ruler-combined"></i> 3,200 sq ft</span>
+        <div class="container">
+            <h2 class="section-title">Featured Properties</h2>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div class="property-image">
+                        <i class="fas fa-home"></i>
                     </div>
-                    <button class="view-btn">View Details</button>
+                    <div class="property-info">
+                        <div class="property-price">₹85 Lac</div>
+                        <h4>3BHK Luxury Apartment</h4>
+                        <p>Hinjewadi Phase I | 1250 sqft | Ready to Move</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-image"></div>
-                <div class="property-info">
-                    <div class="property-price">$850,000</div>
-                    <div class="property-title">Luxury Downtown Penthouse</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 3 Beds</span>
-                        <span><i class="fas fa-bath"></i> 2 Baths</span>
-                        <span><i class="fas fa-ruler-combined"></i> 2,100 sq ft</span>
+                <div class="property-card">
+                    <div class="property-image">
+                        <i class="fas fa-building"></i>
                     </div>
-                    <button class="view-btn">View Details</button>
+                    <div class="property-info">
+                        <div class="property-price">₹2.5 Cr</div>
+                        <h4>Commercial Office</h4>
+                        <p>Hinjewadi IT Park | 2000 sqft | Lease Available</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-image"></div>
-                <div class="property-info">
-                    <div class="property-price">$2,750,000</div>
-                    <div class="property-title">Executive Estate</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 6 Beds</span>
-                        <span><i class="fas fa-bath"></i> 5 Baths</span>
-                        <span><i class="fas fa-ruler-combined"></i> 5,800 sq ft</span>
+                <div class="property-card">
+                    <div class="property-image">
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <button class="view-btn">View Details</button>
-                </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-image"></div>
-                <div class="property-info">
-                    <div class="property-price">$625,000</div>
-                    <div class="property-title">Cozy Family Home</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 4 Beds</span>
-                        <span><i class="fas fa-bath"></i> 2 Baths</span>
-                        <span><i class="fas fa-ruler-combined"></i> 2,400 sq ft</span>
+                    <div class="property-info">
+                        <div class="property-price">₹1.2 Cr</div>
+                        <h4>Investment Plot</h4>
+                        <p>Prime Location | 1500 sqft | High Appreciation</p>
                     </div>
-                    <button class="view-btn">View Details</button>
-                </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-image"></div>
-                <div class="property-info">
-                    <div class="property-price">$1,950,000</div>
-                    <div class="property-title">Waterfront Mansion</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 5 Beds</span>
-                        <span><i class="fas fa-bath"></i> 4 Baths</span>
-                        <span><i class="fas fa-ruler-combined"></i> 4,500 sq ft</span>
-                    </div>
-                    <button class="view-btn">View Details</button>
-                </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-image"></div>
-                <div class="property-info">
-                    <div class="property-price">$475,000</div>
-                    <div class="property-title">Urban Loft</div>
-                    <div class="property-details">
-                        <span><i class="fas fa-bed"></i> 2 Beds</span>
-                        <span><i class="fas fa-bath"></i> 2 Baths</span>
-                        <span><i class="fas fa-ruler-combined"></i> 1,600 sq ft</span>
-                    </div>
-                    <button class="view-btn">View Details</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>500+</h3>
-                <p>Properties Sold</p>
-            </div>
-            <div class="stat-item">
-                <h3>98%</h3>
-                <p>Client Satisfaction</p>
-            </div>
-            <div class="stat-item">
-                <h3>15+</h3>
-                <p>Years Experience</p>
-            </div>
-            <div class="stat-item">
-                <h3>24/7</h3>
-                <p>Support Available</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Omkar Ekale</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #ccc;">
+                        With over 10 years of experience in Pune's dynamic real estate market, Omkar Ekale is your trusted advisor for all property needs. 
+                        Specializing in residential, commercial properties, and investment opportunities, Omkar has helped hundreds of clients achieve their 
+                        real estate dreams.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <span style="background: var(--light-orange); color: var(--white); padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;">Certified Adviser</span>
+                        <span style="background: rgba(255,255,255,0.1); color: var(--white); padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;">500+ Clients</span>
+                        <span style="background: rgba(255,255,255,0.1); color: var(--white); padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;">Hinjewadi Expert</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-user-tie"></i>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2>Get In Touch</h2>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Phone:</strong><br>
-                        (555) 123-4567
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Discuss Your Property Needs</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div style="font-weight: 600; font-size: 1.1rem;">+91 91308 02643</div>
+                            <div>Call / WhatsApp Available</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div style="font-weight: 600;">ekaleomkar10@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div style="font-weight: 600;">Hinjewadi Phase I, Pune</div>
+                            <div>Maharashtra, India</div>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email:</strong><br>
-                        info@eliteproperties.com
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Address:</strong><br>
-                        123 Real Estate Blvd<br>
-                        City, State 12345
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Tell us about your property needs..." required></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn" style="width: 100%;">Send Message</button>
+                </form>
             </div>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Your Phone">
-                </div>
-                <div class="form-group">
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Elite Properties. All rights reserved. | Designed for Real Estate Excellence</p>
+        <div class="container">
+            <p>&copy; 2024 Omkar Ekale - Real Estate Property Adviser. All rights reserved. | Hinjewadi Phase I, Pune</p>
+        </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -583,32 +586,24 @@
                         block: 'start'
                     });
                 }
-                navLinks.classList.remove('active');
             });
         });
 
         // Form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Thank you! Your message has been sent. We will contact you soon.');
             this.reset();
         });
 
-        // View details buttons
-        document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Property details modal would open here in a full implementation!');
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.background = '#1a1a1a';
                 header.style.backdropFilter = 'none';
             }
         });
