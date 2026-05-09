@@ -382,38 +382,50 @@
 
     <!-- Page 6: Contact -->
    <form id="leadForm" class="contact-form">
-    <input type="text" name="name" placeholder="Name *" required><br><br>
-    <input type="tel" name="phone" placeholder="Phone *" required><br><br>
-    <input type="email" name="email" placeholder="Email"><br><br>
-    <select name="property" required>
-        <option>Property Type</option>
-        <option>Residential</option>
-        <option>Commercial</option>
-    </select><br><br>
-    <textarea name="message" placeholder="Message *" required></textarea><br><br>
-    <button type="submit">Send</button>
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Full Name *" required>
+    </div>
+    <div class="form-group">
+        <input type="tel" name="phone" placeholder="Phone Number *" required>
+    </div>
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <select name="property" required>
+            <option value="">Property Type *</option>
+            <option>🏠 Residential 1BHK</option>
+            <option>🏠 Residential 2BHK</option>
+            <option>🏠 Residential 3BHK</option>
+            <option>🏢 Commercial</option>
+            <option>📈 Investment</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" name="budget" placeholder="Budget (50L, 1Cr)">
+    </div>
+    <div class="form-group">
+        <textarea name="message" rows="4" placeholder="Location/Requirements *" required></textarea>
+    </div>
+    <button type="submit" class="cta-btn" style="width:100%;">Send Enquiry</button>
 </form>
 
 <script>
-// ✅ REPLACE WITH YOUR ACTUAL SCRIPT URL
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcHhex6mRg-B_Oy1K_m2bQ8ASwqaUMFLA5BNtHuPXP1ejMuo7tmpCSVx2PtWXlLEvrXA/exec';
+// ✅ REPLACE WITH YOUR WEB APP URL AFTER STEP 1
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbztlbgPHYTMeZH7Ul_dfzraeNEAO1OIu2Rrr5f5FUYMzbe9RW_Y_-X9woePevcC8kjYRw/exec';
 
-document.getElementById('leadForm').addEventListener('submit', function(e) {
+document.getElementById('leadForm').addEventListener('submit', e => {
     e.preventDefault();
+    const formData = new FormData(e.target);
     
-    const formData = new FormData(this);
-    
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.text())
-    .then(data => {
-        if(data.includes('SUCCESS')) {
-            alert('✅ Lead Sent! Check your Google Sheet & Email');
-            this.reset();
+    fetch(SCRIPT_URL, {method: 'POST', body: formData})
+    .then(r => r.text())
+    .then(result => {
+        if(result === 'SUCCESS') {
+            alert('✅ SUCCESS! Check your Google Sheet & Email');
+            e.target.reset();
         } else {
-            alert('❌ Error: ' + data);
+            alert('❌ ' + result + '\nCall: +91 9130802643');
         }
     });
 });
