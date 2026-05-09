@@ -382,56 +382,39 @@
 
     <!-- Page 6: Contact -->
    <form id="leadForm" class="contact-form">
-    <div class="form-group">
-        <input type="text" id="name" name="name" placeholder="Full Name *" required>
-    </div>
-    <div class="form-group">
-        <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required>
-    </div>
-    <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="Email (Optional)">
-    </div>
-    <div class="form-group">
-        <select id="property" name="property" required>
-            <option value="">Property Type *</option>
-            <option value="Residential 1BHK">🏠 Residential 1BHK</option>
-            <option value="Residential 2BHK">🏠 Residential 2BHK</option>
-            <option value="Residential 3BHK">🏠 Residential 3BHK</option>
-            <option value="Commercial Office">🏢 Commercial Office</option>
-            <option value="Commercial Shop">🏪 Commercial Shop</option>
-            <option value="Investment Plot">📈 Investment Plot</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <input type="text" id="budget" name="budget" placeholder="Budget (e.g. 50L, 1Cr)">
-    </div>
-    <div class="form-group">
-        <textarea id="message" name="message" rows="4" placeholder="Location / Requirements *" required></textarea>
-    </div>
-    <button type="submit" class="cta-btn" style="width:100%;">
-        <i class="fas fa-paper-plane"></i> Submit Enquiry
-    </button>
+    <input type="text" name="name" placeholder="Name *" required><br><br>
+    <input type="tel" name="phone" placeholder="Phone *" required><br><br>
+    <input type="email" name="email" placeholder="Email"><br><br>
+    <select name="property" required>
+        <option>Property Type</option>
+        <option>Residential</option>
+        <option>Commercial</option>
+    </select><br><br>
+    <textarea name="message" placeholder="Message *" required></textarea><br><br>
+    <button type="submit">Send</button>
 </form>
 
 <script>
+// ✅ REPLACE WITH YOUR ACTUAL SCRIPT URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcHhex6mRg-B_Oy1K_m2bQ8ASwqaUMFLA5BNtHuPXP1ejMuo7tmpCSVx2PtWXlLEvrXA/exec';
+
 document.getElementById('leadForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const formData = new FormData(this);
     
-    fetch('https://script.google.com/macros/s/AKfycbwMIZUWmpmHUBx56S_AHl2-iiFmdtaDV6S-WSTttLu67WULT7n50SdwngdRxWFjfzpvGA/exec', {
+    fetch(SCRIPT_URL, {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(res => res.text())
     .then(data => {
-        if (data.result === 'success') {
-            alert('✅ Enquiry Submitted! We will call you in 30 mins!');
+        if(data.includes('SUCCESS')) {
+            alert('✅ Lead Sent! Check your Google Sheet & Email');
             this.reset();
+        } else {
+            alert('❌ Error: ' + data);
         }
-    })
-    .catch(error => {
-        alert('❌ Error! Please call +91 91308 02643');
     });
 });
 </script>
