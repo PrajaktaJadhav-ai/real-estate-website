@@ -159,12 +159,6 @@
     </button>
 </div>
 
-<!-- ✅ WORKING CONSULTATION BUTTON -->
-<a href="#contact" class="btn btn-secondary" 
-   style="font-size:1.1rem;padding:15px 25px;background:transparent;border:2px solid #ff8c42;color:#ff8c42;text-decoration:none;border-radius:50px;font-weight:600;display:inline-block;">
-    <i class="fas fa-phone"></i> Free Consultation
-</a>
-
 <!-- ✅ ALL JAVASCRIPT (Add before </body>) -->
 <script>
 /* Smooth scroll for all anchor links */
@@ -265,10 +259,161 @@ document.querySelectorAll('.btn').forEach(btn => {
             <h2 class="section-title">Our Listings</h2>
             <p class="section-subtitle" style="margin-bottom: 2rem;">Featured Properties</p>
             <div class="property-filters">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">Residential</button>
-                <button class="filter-btn">Commercial</button>
-                <button class="filter-btn">Investment</button>
+                <!-- ✅ FILTER BUTTONS -->
+<div class="filter-buttons" style="display:flex;justify-content:center;gap:15px;margin:40px 0;flex-wrap:wrap;">
+    <button class="filter-btn active" data-filter="all" onclick="filterProperties('all')">
+        <i class="fas fa-th"></i> All
+    </button>
+    <button class="filter-btn" data-filter="residential" onclick="filterProperties('residential')">
+        <i class="fas fa-home"></i> Residential
+    </button>
+    <button class="filter-btn" data-filter="commercial" onclick="filterProperties('commercial')">
+        <i class="fas fa-building"></i> Commercial
+    </button>
+    <button class="filter-btn" data-filter="investment" onclick="filterProperties('investment')">
+        <i class="fas fa-chart-line"></i> Investment
+    </button>
+</div>
+
+<!-- ✅ SAMPLE PROPERTIES (Add below buttons) -->
+<div class="properties-grid" id="propertiesGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;">
+    <div class="property-card residential" data-category="residential">
+        <div style="background:linear-gradient(45deg,#ff8c42,#ffb366);height:200px;display:flex;align-items:center;justify-content:center;color:white;font-size:3rem;">
+            <i class="fas fa-home"></i>
+        </div>
+        <div style="padding:20px;">
+            <h3>3BHK Luxury Apartment</h3>
+            <div style="font-size:1.5rem;font-weight:bold;color:#ff8c42;margin:10px 0;">₹85 Lac</div>
+            <p>Hinjewadi Phase 1 | 1250 sqft | Ready to Move</p>
+            <a href="https://wa.me/919130802643?text=Interested%20in%203BHK%20Hinjewadi" target="_blank" class="property-btn">Enquire</a>
+        </div>
+    </div>
+    
+    <div class="property-card commercial" data-category="commercial">
+        <div style="background:linear-gradient(45deg,#28a745,#20c997);height:200px;display:flex;align-items:center;justify-content:center;color:white;font-size:3rem;">
+            <i class="fas fa-building"></i>
+        </div>
+        <div style="padding:20px;">
+            <h3>Commercial Office Space</h3>
+            <div style="font-size:1.5rem;font-weight:bold;color:#28a745;margin:10px 0;">₹2.5 Cr</div>
+            <p>IT Park | 2000 sqft | Lease Available</p>
+            <a href="https://wa.me/919130802643?text=Commercial%20office%20details" target="_blank" class="property-btn">Enquire</a>
+        </div>
+    </div>
+    
+    <div class="property-card investment" data-category="investment">
+        <div style="background:linear-gradient(45deg,#007bff,#0056b3);height:200px;display:flex;align-items:center;justify-content:center;color:white;font-size:3rem;">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <div style="padding:20px;">
+            <h3>Investment Plot</h3>
+            <div style="font-size:1.5rem;font-weight:bold;color:#007bff;margin:10px 0;">₹1.2 Cr</div>
+            <p>Prime Location | High ROI | 1500 sqft</p>
+            <a href="https://wa.me/919130802643?text=Investment%20plot%20details" target="_blank" class="property-btn">Enquire</a>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ FILTER JAVASCRIPT (Add before </body>) -->
+<script>
+function filterProperties(category) {
+    // Remove active class from all buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Add active to clicked button
+    event.target.classList.add('active');
+    
+    // Get all property cards
+    const cards = document.querySelectorAll('.property-card');
+    
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        
+        if(filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// Add animation on load
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.property-card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+        }, index * 200);
+    });
+});
+</script>
+
+<!-- ✅ STYLES (Add to your <style> or before </head>) -->
+<style>
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    color: #495057;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-btn:hover {
+    background: #ff8c42;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255,140,66,0.4);
+}
+
+.filter-btn.active {
+    background: #ff8c42 !important;
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(255,140,66,0.4);
+}
+
+.property-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+}
+
+.property-btn {
+    background: #25D366;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.property-btn:hover {
+    background: #20c95b;
+    transform: translateY(-2px);
+}
+</style>
             </div>
             <div class="properties-grid">
                 <div class="property-card">
