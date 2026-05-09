@@ -144,10 +144,71 @@
                 <h1>Trusted Real Estate Adviser</h1>
                 <p class="hero-subtitle">Find Your Perfect Property<br>Whether you're a first-time buyer, seasoned investor, or commercial property seeker — Omkar Ekale guides you every step of the way to make the right investment decision.</p>
                 <div class="search-box">
-                    <input type="text" placeholder="Enter location, city or area...">
-                    <button class="btn">Explore Properties</button>
-                </div>
-                <a href="#contact" class="btn btn-secondary">Free Consultation</a>
+                    <div class="search-container" style="display:flex;gap:15px;max-width:600px;margin:40px auto;flex-wrap:wrap;justify-content:center;">
+    
+    <!-- ✅ WORKING SEARCH + BUTTON -->
+    <div style="flex:1;min-width:250px;">
+        <input type="text" id="propertySearch" placeholder="Enter location, city or area..." 
+               style="width:100%;padding:18px 25px;border:2px solid #ff8c42;border-radius:50px;font-size:16px;outline:none;">
+    </div>
+    
+    <!-- ✅ WORKING EXPLORE BUTTON -->
+    <button class="btn" onclick="searchProperties()" 
+            style="font-size:1.2rem;padding:18px 30px;background:#ff8c42;color:white;border:none;border-radius:50px;cursor:pointer;font-weight:600;">
+        <i class="fas fa-search"></i> Explore Properties
+    </button>
+</div>
+
+<!-- ✅ WORKING CONSULTATION BUTTON -->
+<a href="#contact" class="btn btn-secondary" 
+   style="font-size:1.1rem;padding:15px 25px;background:transparent;border:2px solid #ff8c42;color:#ff8c42;text-decoration:none;border-radius:50px;font-weight:600;display:inline-block;">
+    <i class="fas fa-phone"></i> Free Consultation
+</a>
+
+<!-- ✅ ALL JAVASCRIPT (Add before </body>) -->
+<script>
+/* Smooth scroll for all anchor links */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+/* Search function */
+function searchProperties() {
+    const searchTerm = document.getElementById('propertySearch').value.toLowerCase();
+    
+    if(searchTerm === '') {
+        // Scroll to properties if empty
+        document.getElementById('properties').scrollIntoView({behavior: 'smooth'});
+        return;
+    }
+    
+    // WhatsApp with search term
+    const message = `Hi Omkar, I'm looking for properties in "${searchTerm}" area. Please share options!`;
+    window.open(`https://wa.me/919130802643?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+/* Search on Enter key */
+document.getElementById('propertySearch').addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') {
+        searchProperties();
+    }
+});
+
+/* Button hover effects */
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px)';
+    });
+    btn.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+</script>
             </div>
         </div>
     </section>
