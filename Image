@@ -1,20 +1,5 @@
-<div class="logo-container">
-  <img src="images/omkar-properties-logo.jpg" alt="Omkar Properties Real Estate Logo" class="logo">
+<!-- ✅ YOUR LOGO INTEGRATED -->
+<div class="logo-container" style="text-align:center;padding:2rem 0;background:linear-gradient(135deg,#f5f4ea 0%,#fff 100%);margin-bottom:3rem;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+    <img src="images/omkar-properties-logo.jpg" alt="Omkar Properties Real Estate Logo" class="logo" style="max-width:280px;width:100%;height:auto;object-fit:contain;">
+    <div style="font-size:1.4rem;color:#1e3c72;font-weight:700;margin-top:1rem;">Admin Dashboard</div>
 </div>
-
-<style>
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #f5f4ea;
-  }
-
-  .logo {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-</style>
